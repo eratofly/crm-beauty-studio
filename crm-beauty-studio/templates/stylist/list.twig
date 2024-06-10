@@ -1,0 +1,19 @@
+{% extends 'page.twig' %}
+
+{% block content %}
+    <div class="list">
+        <div class="list__title"><b>Stylists</b></div>
+        <a class="list__button" href="/stylist/add">Add new stylist</a>
+        <div class="list__items">
+            {% for stylist in stylists %}
+                <div class="item">
+                    <span>{{ stylist.first_name }}</span>
+                    <span>{{ stylist.last_name }}</span>
+                    <span>{{ stylist.phone }}</span>
+                    <a class="change" href={{ "/stylist/info/" ~ stylist.id }}>Change</a>
+                    <a class="delete" href={{ "/stylist/delete/" ~ stylist.id }}>Delete</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

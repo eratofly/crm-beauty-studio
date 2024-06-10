@@ -1,0 +1,23 @@
+{% extends 'page.twig' %}
+
+{% block content %}
+    <div>
+        <div class="list__title"><b>Info stylist</b></div>
+        <form action="/stylist/update" method="POST">
+            <input class="hidden" value="{{ stylist.id }}" name="id" />
+            <div>
+                <span>First name</span>
+                <input value="{{ stylist.first_name }}" type="text" name="first_name"/>
+            </div>
+            <div>
+                <span>Last name</span>
+                <input value="{{ stylist.last_name }}" type="text" name="last_name"/>
+            </div>
+            <div>
+                <span>Phone</span>
+                <input value="{{ stylist.phone }}" type="text" name="phone"/>
+            </div>
+            <input class="save" type="submit" value="Save">
+        </form>
+    </div>
+{% endblock %}

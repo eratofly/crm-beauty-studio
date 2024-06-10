@@ -1,0 +1,48 @@
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.list__title {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.list__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 30px;
+    font-size: 20px;
+    color: #000000;
+    background-color: #f37a77;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+ .list__button:hover {
+     background-color: #f6605c;
+}
+
+ .list__items {
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+ }
+
+ .item {
+     display: flex;
+     gap: 10px;
+ }
+
+ .change {
+     color: #3b82f6;
+     text-transform: uppercase;
+ }
+
+ .delete {
+     color: #ff0500;
+     text-transform: uppercase;
+ }
+
