@@ -53,6 +53,8 @@ class ClientController extends AbstractController
         ]);
     }
 
+    //TODO: создавать запись о клиенте, кгда форма заполняется
+
     public function addClient(): Response
     {
         $id = $this->clientService->addClient();

@@ -1,0 +1,45 @@
+index:
+  path: /
+  methods: GET
+  controller: App\Controller\StylistController::index
+
+stylists:
+  path: /stylists
+  controller: App\Controller\StylistController::showStylistsList
+
+stylist_info:
+  path: /stylist/info/{id}
+  controller: App\Controller\StylistController::showStylistForm
+
+add_stylist:
+  path: /stylist/add
+  controller: App\Controller\StylistController::addStylist
+
+delete_stylist:
+  path: /stylist/delete/{id}
+  controller: App\Controller\StylistController::deleteStylist
+
+update_stylist:
+  path: /stylist/update
+  controller: App\Controller\StylistController::updateStylist
+  
+clients:
+  path: /clients
+  controller: App\Controller\ClientController::clients
+
+client_info:
+  path: /client/info/{id}
+  controller: App\Controller\ClientController::infoClient
+
+add_client:
+  path: /client/add
+  controller: App\Controller\ClientController::addClient
+
+delete_client:
+  path: /client/delete/{id}
+  controller: App\Controller\ClientController::deleteClient
+
+update_client:
+  path: /client/update
+  controller: App\Controller\ClientController::updateClient
+

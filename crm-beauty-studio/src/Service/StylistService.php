@@ -7,14 +7,12 @@ use App\Entity\Stylist;
 use App\Database\StylistTable;
 class StylistService
 {
-    private StylistTable $stylistTable;
     private const DEFUALT_STYLIST_FIRST_NAME = 'First name';
     private const DEFUALT_STYLIST_LAST_NAME = 'Last name';
     private const DEFUALT_STYLIST_PHONE = '+79000000000';
 
-    public function __construct(StylistTable $stylistTable)
+    public function __construct(private StylistTable $stylistTable)
     {
-        $this->stylistTable = $stylistTable;
     }
 
     /**
@@ -22,12 +20,23 @@ class StylistService
      */
     public function stylists(): array
     {
+        //TODO перенести создание объектов в класс stylistTable
         $stylists = $this->stylistTable->getAllStylists();
         foreach ($stylists as &$stylist)
         {
             $stylist = $this->getStylistFromArray($stylist);
         }
         return $stylists;
+    }
+
+    private function getStylistFromArray(array $arParams): Stylist
+    {
+        return new Stylist(
+            $arParams['id'],
+            $arParams['first_name'],
+            $arParams['last_name'],
+            $arParams['phone']
+        );
     }
 
     public function getStylist(int $id)
@@ -70,15 +79,5 @@ class StylistService
     public function deleteStylist(int $id): void
     {
         $this->stylistTable->deleteStylist($id);
-    }
-
-    private function getStylistFromArray(array $arParams): Stylist
-    {
-        return new Stylist(
-            $arParams['id'],
-            $arParams['first_name'],
-            $arParams['last_name'],
-            $arParams['phone']
-        );
     }
 }
